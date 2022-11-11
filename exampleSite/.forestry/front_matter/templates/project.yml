@@ -1,4 +1,86 @@
 ---
 label: project
 hide_body: false
-fields: []
+fields:
+- name: name
+  type: text
+  config:
+    required: true
+  label: Name
+  description: The name of the project can be changed later
+- name: oshwa_id_us
+  type: number
+  description: Enter the number after US that came from OSWHA certification.
+  default: 0
+  required: true
+  config:
+    min: 
+    max: 
+    step: 
+  label: OSHWA ID US#####
+- name: creation_date
+  type: datetime
+  label: Creation Date
+  config:
+    required: true
+    date_format: 
+    time_format: 
+    display_utc: false
+  default: now
+  description: Date of initial creation or conception
+- name: last_edited
+  type: datetime
+  label: Last Edited
+  description: Please update this to today if information has updated
+  config:
+    required: true
+    date_format: 
+    time_format: 
+    display_utc: false
+  default: now
+- name: short_description
+  type: textarea
+  default: ''
+  config:
+    required: true
+    wysiwyg: true
+    schema:
+      format: markdown
+  label: Short Description
+  description: The elevator pitch... a few sentences at most.
+- name: transparent_photos
+  type: image_gallery
+  config: {}
+  description: Photos with a transparency - png likely
+  label: Transparent Photos
+- name: photos
+  type: image_gallery
+  config: {}
+  label: Photos
+  description: any other photos available
+- name: bom
+  type: field_group_list
+  fields:
+  - name: quantity
+    type: number
+    label: Quantity
+    description: Quantity of part
+    default: 1
+    required: true
+    config:
+      min: 0
+      max: 
+      step: 1
+      required: true
+  - name: part
+    type: text
+    config:
+      required: true
+    label: Part
+    description: A BOM Item
+  config:
+    min: 
+    max: 
+    labelField: 
+  label: BOM
+  description: Bom Items?
